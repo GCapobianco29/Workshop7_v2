@@ -9,9 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -51,5 +49,60 @@ public class CustomerService {
         Gson gson = new Gson();
 
         return gson.toJson(a);
+    }
+
+    //add new data into database (PUT request)
+    @PUT
+    @Path("/putcustomer")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String putCustomer(String jsonString) {
+        String response = "";
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Gson gson = new Gson();
+        Customer cust = gson.fromJson(jsonString, Customer.class);
+        em.getTransaction().begin();
+        em.persist(cust);
+        em.getTransaction().commit();
+        if(em.contains(cust))
+        {
+            response = "Customer inserted to DB";
+        }
+        else
+        {
+            response = "Customer insert failed";
+        }
+        em.close();
+        factory.close();
+
+        return response;
+    }
+
+    //delete data from database (DELETE request)
+    @DELETE
+    @Path("/deletecustomer/{ customerId }")
+    public String deleteCustomer(@PathParam("customerId") int customerId)
+    {
+        String response = "";
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer cust = em.find(Customer.class, customerId);
+        em.getTransaction().begin();
+        em.remove(cust);
+        if(em.contains(cust))
+        {
+            em.getTransaction().rollback();
+            response = "Customer deletion failed";
+        }
+        else
+        {
+            em.getTransaction().commit();
+            response = "Customer deleted";
+        }
+        em.close();
+        factory.close();
+
+        return response;
     }
 }
