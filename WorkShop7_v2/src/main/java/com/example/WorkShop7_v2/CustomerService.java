@@ -1,5 +1,6 @@
 package com.example.WorkShop7_v2;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import model.Customer;
@@ -35,5 +36,20 @@ public class CustomerService {
         }
 
         return jsonArray.toString();
+    }
+
+    @GET
+    @Path("/getcustomerslist")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getCusts() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Query query = em.createQuery("select a from Customer a");
+        List<String> a = query.getResultList();
+        em.close();
+        factory.close();
+        Gson gson = new Gson();
+
+        return gson.toJson(a);
     }
 }
