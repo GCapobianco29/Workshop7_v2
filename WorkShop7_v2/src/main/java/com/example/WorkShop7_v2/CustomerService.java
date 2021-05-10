@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-
+//------Bing He--------the following is for WorkShop8 Android app to use as data service for listAllCustomer view ------
 @Path("/customer")
 public class CustomerService {
     @GET
@@ -20,7 +20,7 @@ public class CustomerService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getCustNames() {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default"); //where the mapping is
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Query query = em.createQuery("select c from Customer c");
         List<Customer> list = query.getResultList();
@@ -35,7 +35,7 @@ public class CustomerService {
 
         return jsonArray.toString();
     }
-
+//-------Gabriel---------the following is for WorkShop7 to use as data service for listAllCustomer table---------------
     @GET
     @Path("/getcustomerslist")
     @Produces(MediaType.APPLICATION_JSON)
@@ -50,7 +50,7 @@ public class CustomerService {
 
         return gson.toJson(a);
     }
-
+//--------Angelito---------------------------------------------------------
     //add new data into database (PUT request)
     @PUT
     @Path("/putcustomer")
@@ -78,7 +78,7 @@ public class CustomerService {
 
         return response;
     }
-
+//--------Angelito---------------------------------------------------------
     //delete data from database (DELETE request)
     @DELETE
     @Path("/deletecustomer/{ customerId }")
@@ -104,5 +104,29 @@ public class CustomerService {
         factory.close();
 
         return response;
+    }
+//--------Bing He---------------------------------------------------------
+    @POST
+    @Path("/updatecustomer")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String updateCustomer(String jsonString)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Gson gson = new Gson();
+        Customer Customer = gson.fromJson(jsonString, Customer.class);
+        System.out.println(Customer);
+        em.getTransaction().begin();
+        Customer result = em.merge(Customer);
+        em.getTransaction().commit();
+        if (result != null)
+        {
+            return "{ 'message':'Update Successful' }";
+        }
+        else
+        {
+            return "{ 'message':'Update Failed' }";
+        }
     }
 }
