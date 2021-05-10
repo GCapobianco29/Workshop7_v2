@@ -9,14 +9,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/customer")
 public class CustomerService {
+
+//--------Bing He -----------------------------------------------------------------
+//--------listCustomers with customerId,firstname and lastname function -----------
+//--------the following code is duplicate with Gabriel's code, may need to be deleted later
+//--------but leave for now in case it's needed later
     @GET
     @Path("/getallcustnames")
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,7 +40,8 @@ public class CustomerService {
 
         return jsonArray.toString();
     }
-
+    //--------Gabriel -----------------------------------------------------------------
+    //--------getAllCustomers function -----------------------------------------------------------------
     @GET
     @Path("/getcustomerslist")
     @Produces(MediaType.APPLICATION_JSON)
@@ -51,5 +55,30 @@ public class CustomerService {
         Gson gson = new Gson();
 
         return gson.toJson(a);
+    }
+    //---- Bing He -------------------------------------------------------------------
+    //---- update customer function -------------------------------------------------------------------
+    @POST
+    @Path("/updatecustomer")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String postCustomer(String jsonString)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Gson gson = new Gson();
+        Customer customer = gson.fromJson(jsonString, Customer.class);
+        System.out.println(customer);
+        em.getTransaction().begin();
+        Customer result = em.merge(customer);
+        em.getTransaction().commit();
+        if (result != null)
+        {
+            return "{ 'message':'Update Successful' }";
+        }
+        else
+        {
+            return "{ 'message':'Update Failed' }";
+        }
     }
 }
