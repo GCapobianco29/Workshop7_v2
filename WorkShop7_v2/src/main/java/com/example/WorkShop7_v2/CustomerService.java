@@ -105,4 +105,16 @@ public class CustomerService {
 
         return response;
     }
+
+    @GET
+    @Path("/getcustomer/{ customerId }")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getCustomer(@PathParam("customerId") int customerId)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer Customer = em.find(Customer.class, customerId);
+        Gson gson = new Gson();
+        return gson.toJson(Customer);
+    }
 }
