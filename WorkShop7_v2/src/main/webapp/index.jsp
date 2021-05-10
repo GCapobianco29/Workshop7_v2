@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./Login.css" type="text/css">
     <title>Login</title>
 </head>
+<body style="background-image: url('image/vacation.jpg')">
 <script>
 
     function btnLogin()
@@ -27,7 +28,7 @@
         var text = document.getElementById("text");
         var password = document.getElementById("password");
 
-        if (text.innerText=="group1" && password.innerText=="123")
+        if (text.value=="group1" && password.value=="123")
         {
             //Login as Hardcoded User
             alert("Login Successful")
@@ -49,17 +50,16 @@
         <h1 style = "margin-bottom: 2%; text-align: center"> Welcome to Travel Expert Please Login</h1>
         <br />
         <div class = "UsernamePassword" style ="text-align: center">
-                <label class="uname"><b>Username</b></label>
                 <input id = "text" class="text" placeholder="Enter Username" name="uname" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
                 <br/>
                 <br/>
                 <br/>
-                <label class="psw"><b>Password</b></label>
-                <input id = "password" class="password" placeholder="Enter Password" name="psw" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
+                <input type="password" id = "password" class="password" placeholder="Enter Password" name="psw" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
                 <br/>
                 <br/>
 
-                <button type="submit" onclick="btnLogin()" style = "background-color: #008CBA; min-width: 21%; margin-left: 17%">Login</button>
+            <button type="submit" onclick="btnLogin()" style = "background-color: #008CBA; min-width: 10%; margin-left: 1%; color: white; min-height: 50px; "><b>Login</b></button>
+
                 <label>
                     <input type="checkbox" checked="checked" name="remember" style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box; color: #0000ff"> Remember me
                 </label>
