@@ -1,13 +1,13 @@
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 80%;
+    width: 40%;
     border: 2px solid #ddd;
 }
 
 th, td {
     text-align: left;
-    padding: 10px;
+    padding: 5px;
 }
 
 tr:nth-child(even) {
@@ -60,7 +60,7 @@ tr:nth-child(even) {
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 8px;
+    padding: 5px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
@@ -78,22 +78,66 @@ hr {
     margin-bottom: 20px;
 }
 
-/* Set a style for the submit/register button */
+/* Set a style for the submit/create button */
 .createbtn {
     background-color: #04AA6D;
     color: white;
-    padding: 16px 20px;
+    padding: 12px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
-    opacity: 0.9;
+    opacity: 0.6;
 }
 
 .createbtn:hover {
-    opacity:1;
+    opacity:2;
+}
+/* Set a style for the edit button */
+.editbtn {
+    background-color: orange;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
 }
 
+.editbtn:hover {
+    opacity:2;
+}
+/* Set a style for the save button */
+.savebtn {
+    background-color: blue;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.savebtn:hover {
+    opacity: 2;
+}
+/* Set a style for the delete button */
+.deletebtn {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.deletebtn:hover {
+    opacity:2;
+}
 /* Add a blue text color to links */
 a {
     color: dodgerblue;
@@ -107,9 +151,9 @@ a {
 /************************************************************************************/
 .vl {
     border-left: 7px solid darkblue;
-    height: 1000px;
+    height: 1900px;
     position: absolute;
-    left: 30%;
+    left: 55%;
     margin-left: -3px;
     top: 30px;
 }
