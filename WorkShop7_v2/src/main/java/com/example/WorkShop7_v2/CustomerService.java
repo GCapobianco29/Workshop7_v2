@@ -15,11 +15,6 @@ import java.util.List;
 
 @Path("/customer")
 public class CustomerService {
-
-//--------Bing He -----------------------------------------------------------------
-//--------listCustomers with customerId,firstname and lastname function -----------
-//--------the following code is duplicate with Gabriel's code, may need to be deleted later
-//--------but leave for now in case it's needed later
     @GET
     @Path("/getallcustnames")
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,8 +35,7 @@ public class CustomerService {
 
         return jsonArray.toString();
     }
-    //--------Gabriel -----------------------------------------------------------------
-    //--------getAllCustomers function -----------------------------------------------------------------
+
     @GET
     @Path("/getcustomerslist")
     @Produces(MediaType.APPLICATION_JSON)
@@ -56,29 +50,59 @@ public class CustomerService {
 
         return gson.toJson(a);
     }
-    //---- Bing He -------------------------------------------------------------------
-    //---- update customer function -------------------------------------------------------------------
-    @POST
-    @Path("/updatecustomer")
+
+    //add new data into database (PUT request)
+    @PUT
+    @Path("/putcustomer")
+    @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String postCustomer(String jsonString)
-    {
+    public String putCustomer(String jsonString) {
+        String response = "";
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
-        Customer customer = gson.fromJson(jsonString, Customer.class);
-        System.out.println(customer);
+        Customer cust = gson.fromJson(jsonString, Customer.class);
         em.getTransaction().begin();
-        Customer result = em.merge(customer);
+        em.persist(cust);
         em.getTransaction().commit();
-        if (result != null)
+        if(em.contains(cust))
         {
-            return "{ 'message':'Update Successful' }";
+            response = "Customer inserted to DB";
         }
         else
         {
-            return "{ 'message':'Update Failed' }";
+            response = "Customer insert failed";
         }
+        em.close();
+        factory.close();
+
+        return response;
+    }
+
+    //delete data from database (DELETE request)
+    @DELETE
+    @Path("/deletecustomer/{ customerId }")
+    public String deleteCustomer(@PathParam("customerId") int customerId)
+    {
+        String response = "";
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer cust = em.find(Customer.class, customerId);
+        em.getTransaction().begin();
+        em.remove(cust);
+        if(em.contains(cust))
+        {
+            em.getTransaction().rollback();
+            response = "Customer deletion failed";
+        }
+        else
+        {
+            em.getTransaction().commit();
+            response = "Customer deleted";
+        }
+        em.close();
+        factory.close();
+
+        return response;
     }
 }

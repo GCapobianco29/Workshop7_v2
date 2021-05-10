@@ -10,6 +10,6 @@
 <br/>
 <a href="h">Hello Servlet</a>
 </br>
-<a href="customerlist.html">Customer List</a>
+<a href="customerManagement.html">Customer Management</a>
 </body>
 </html>
