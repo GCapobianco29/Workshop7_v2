@@ -34,7 +34,7 @@ function populateCustTable(json)
         json.forEach((c) =>{
             temp += "<tr onclick='selectCust()' style='cursor: pointer;'>";
             temp += "<td>"+c.CustomerId+"</td>";
-            temp += "<td>"+c.CustFirstName+"</td>";
+            temp += "<td class='td'>"+c.CustFirstName+"</td>";
             temp += "<td>"+c.CustLastName+"</td>";
             temp += "<td>"+c.CustAddress+"</td>";
             temp += "<td>"+c.CustCity+"</td>";
@@ -43,7 +43,7 @@ function populateCustTable(json)
             temp += "<td>"+c.CustCountry+"</td>";
             temp += "<td>"+c.CustHomePhone+"</td>";
             temp += "<td>"+c.CustBusPhone+"</td>";
-            temp += "<td>"+c.CustEmail+"</td></tr>";
+            temp += "<td>"+c.CustEmail+"</td>";
             temp += "<td>"+c.AgentId+"</td></tr>";
         })
         document.getElementById("customers-table-body").innerHTML = temp;
@@ -75,17 +75,17 @@ function selectCust(){
 
 
 
-/*function myFunction() {
+function custFilter() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("customers-table-body");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
+        td = tr[i].getElementsByClassName("td")[0];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -95,7 +95,7 @@ function selectCust(){
             }
         }
     }
-}*/
+}
 
 //add function from customerManagement.html
 function createCust()
