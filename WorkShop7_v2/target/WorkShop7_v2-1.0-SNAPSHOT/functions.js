@@ -44,7 +44,7 @@ function populateCustTable(json)
             temp += "<td>"+c.CustHomePhone+"</td>";
             temp += "<td>"+c.CustBusPhone+"</td>";
             temp += "<td>"+c.CustEmail+"</td></tr>";
-            /*temp += "<td>"+c.agentId+"</td></tr>";*/
+            temp += "<td>"+c.AgentId+"</td></tr>";
         })
         document.getElementById("customers-table-body").innerHTML = temp;
     }
@@ -57,17 +57,17 @@ function selectCust(){
         table.rows[i].onclick = function ()
         {
             document.getElementById("custid").value = this.cells[0].innerHTML;
-            document.getElementById("Fname").value = this.cells[1].innerHTML;
-            document.getElementById("Lname").value = this.cells[2].innerHTML;
-            document.getElementById("address").value = this.cells[3].innerHTML;
-            document.getElementById("city").value = this.cells[4].innerHTML;
-            document.getElementById("prov").value = this.cells[5].innerHTML;
-            document.getElementById("postal").value = this.cells[6].innerHTML;
-            document.getElementById("country").value = this.cells[7].innerHTML;
-            document.getElementById("homeph").value = this.cells[8].innerHTML;
-            document.getElementById("busph").value = this.cells[9].innerHTML;
-            document.getElementById("email").value = this.cells[10].innerHTML;
-            document.getElementById("agentid").value = this.cells[11].innerHTML;
+            document.getElementById("CustFirstName").value = this.cells[1].innerHTML;
+            document.getElementById("CustLastName").value = this.cells[2].innerHTML;
+            document.getElementById("CustAddress").value = this.cells[3].innerHTML;
+            document.getElementById("CustCity").value = this.cells[4].innerHTML;
+            document.getElementById("CustProv").value = this.cells[5].innerHTML;
+            document.getElementById("CustPostal").value = this.cells[6].innerHTML;
+            document.getElementById("CustCountry").value = this.cells[7].innerHTML;
+            document.getElementById("CustHomePhone").value = this.cells[8].innerHTML;
+            document.getElementById("CustBusPhone").value = this.cells[9].innerHTML;
+            document.getElementById("CustEmail").value = this.cells[10].innerHTML;
+            document.getElementById("AgentId").value = this.cells[11].innerHTML;
         }
     }
 }
