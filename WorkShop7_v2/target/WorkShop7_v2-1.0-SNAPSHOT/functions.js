@@ -12,6 +12,7 @@
         }
     }, "json");
 }*/
+var mode = 0;
 
 document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
 //const tableBody = document.querySelector("#customers-table > tbody");
@@ -97,8 +98,34 @@ function custFilter() {
     }
 }
 
+//make the fields empty and set mode to 2
+function createBtn()
+{
+    //set mode to 2
+    mode = 2;
+
+    //clear all fields
+    var divChildren = $("#inputField input");
+    for (i = 0; i < divChildren.length; i++)
+    {
+        divChildren[i].value = "";
+    }
+}
+
+//when submit button is clicked
+function submitBtn()
+{
+    alert(mode);
+    //if or case statement
+    if(mode == 2)
+    {
+        addCust();
+    }
+    //else
+}
+
 //add function from customerManagement.html
-function createCust()
+function addCust()
 {
     alert("you clicked create");
 
@@ -142,3 +169,24 @@ function deleteCust(customerId) {
     });
 
 }
+
+<!--    function SaveCustomer()-->
+<!--    {-->
+<!--        document.getElementById("Fname").value;-->
+<!--        document.getElementById("Lname").value;-->
+<!--        document.getElementById("address").value;-->
+<!--        document.getElementById("city").value;-->
+<!--        document.getElementById("prov").value;-->
+<!--        document.getElementById("postal").value;-->
+<!--        document.getElementById("country").value;-->
+<!--        document.getElementById("homeph").value;-->
+<!--        document.getElementById("busph").value;-->
+<!--        document.getElementById("email").value;-->
+
+<!--        Connection conn = new DBConnectionManager().getConnection();-->
+<!--        switch (mode[0]){​​​​​-->
+<!--            case "edit":-->
+<!--                String sql_edit = "UPDATE `customers` SET `CustFirstName`=?,`CustLastName`=?,`CustAddress`=?,`CustCity`=?,"-->
+<!--                + "`CustProv`=?,`CustPostal`=?,`CustCountry`=?,`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=?,"-->
+<!--                + "`AgentId`=? WHERE CustomerId=?";-->
+<!--    }-->
