@@ -62,6 +62,7 @@ public class CustomerService {
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
         Customer cust = gson.fromJson(jsonString, Customer.class);
+        System.out.println(cust);
         em.getTransaction().begin();
         em.persist(cust);
         em.getTransaction().commit();
@@ -105,7 +106,23 @@ public class CustomerService {
 
         return response;
     }
-//--------Bing He---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @POST
     @Path("/updatecustomer")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -129,4 +146,5 @@ public class CustomerService {
             return "{ 'message':'Update Failed' }";
         }
     }
+
 }
