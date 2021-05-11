@@ -142,3 +142,24 @@ function deleteCust(customerId) {
     });
 
 }
+
+<!--    function SaveCustomer()-->
+<!--    {-->
+<!--        document.getElementById("Fname").value;-->
+<!--        document.getElementById("Lname").value;-->
+<!--        document.getElementById("address").value;-->
+<!--        document.getElementById("city").value;-->
+<!--        document.getElementById("prov").value;-->
+<!--        document.getElementById("postal").value;-->
+<!--        document.getElementById("country").value;-->
+<!--        document.getElementById("homeph").value;-->
+<!--        document.getElementById("busph").value;-->
+<!--        document.getElementById("email").value;-->
+
+<!--        Connection conn = new DBConnectionManager().getConnection();-->
+<!--        switch (mode[0]){​​​​​-->
+<!--            case "edit":-->
+<!--                String sql_edit = "UPDATE `customers` SET `CustFirstName`=?,`CustLastName`=?,`CustAddress`=?,`CustCity`=?,"-->
+<!--                + "`CustProv`=?,`CustPostal`=?,`CustCountry`=?,`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=?,"-->
+<!--                + "`AgentId`=? WHERE CustomerId=?";-->
+<!--    }-->

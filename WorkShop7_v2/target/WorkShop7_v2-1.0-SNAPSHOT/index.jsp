@@ -33,7 +33,6 @@
             //Login as Hardcoded User
             alert("Login Successful")
             window.location.href="customerManagement.html"
-            //Do your stuff
             return;
         }
         else {

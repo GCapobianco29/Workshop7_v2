@@ -59,7 +59,7 @@ public class CustomerService {
     {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
-        Customer Customer = em.find(Customer.class, CustomerId);
+        Customer Customer = em.find(Customer.class, customerId);
         Gson gson = new Gson();
         return gson.toJson(Customer);
 }
