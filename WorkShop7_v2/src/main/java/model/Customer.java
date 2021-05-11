@@ -16,6 +16,7 @@ public class Customer {
     private String CustHomePhone;
     private String CustBusPhone;
     private String CustEmail;
+    private int AgentId;
 
     @Id
     @Column(name = "CustomerId", nullable = false)
@@ -127,6 +128,16 @@ public class Customer {
         CustEmail = custEmail;
     }
 
+    @Basic
+    @Column(name = "AgentId", nullable = false)
+    public int getAgentId() {
+        return AgentId;
+    }
+
+    public void setAgentId(int agentId) {
+        AgentId = agentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,6 +162,7 @@ public class Customer {
         if (CustBusPhone != null ? !CustBusPhone.equals(customer.CustBusPhone) : customer.CustBusPhone != null)
             return false;
         if (CustEmail != null ? !CustEmail.equals(customer.CustEmail) : customer.CustEmail != null) return false;
+        if (AgentId != customer.AgentId) return false;
 
         return true;
     }
@@ -168,6 +180,7 @@ public class Customer {
         result = 31 * result + (CustHomePhone != null ? CustHomePhone.hashCode() : 0);
         result = 31 * result + (CustBusPhone != null ? CustBusPhone.hashCode() : 0);
         result = 31 * result + (CustEmail != null ? CustEmail.hashCode() : 0);
+        result = 31 * result + AgentId;
         return result;
     }
 
@@ -185,6 +198,7 @@ public class Customer {
                 ", CustHomePhone='" + CustHomePhone + '\'' +
                 ", CustBusPhone='" + CustBusPhone + '\'' +
                 ", CustEmail='" + CustEmail + '\'' +
+                ", AgentId=" + AgentId +
                 '}';
     }
 }
