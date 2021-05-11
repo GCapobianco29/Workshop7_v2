@@ -3,6 +3,7 @@ package com.example.WorkShop7_v2;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import model.Customer;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 @Path("/customer")
@@ -61,7 +63,9 @@ public class CustomerService {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
-        Customer cust = gson.fromJson(jsonString, Customer.class);
+        Type type = new TypeToken<Customer>() {}.getType();
+        Customer cust = gson.fromJson(jsonString, type);
+        //Customer cust = gson.fromJson(jsonString, Customer.class);
         em.getTransaction().begin();
         em.persist(cust);
         em.getTransaction().commit();
