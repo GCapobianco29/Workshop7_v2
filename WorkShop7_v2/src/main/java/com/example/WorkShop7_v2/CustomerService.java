@@ -50,6 +50,20 @@ public class CustomerService {
 
         return gson.toJson(a);
     }
+
+//------------------Sheyi---------used to get customer--------------------------------
+    @GET
+    @Path("/getcustomer/{ customerId }")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAgent(@PathParam("customerId") int customerId)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer Customer = em.find(Customer.class, CustomerId);
+        Gson gson = new Gson();
+        return gson.toJson(Customer);
+}
+
 //--------Angelito---------------------------------------------------------
     //add new data into database (PUT request)
     @PUT
