@@ -56,6 +56,7 @@ function selectCust(){
     {
         table.rows[i].onclick = function ()
         {
+            document.getElementById("custid").value = this.cells[0].innerHTML;
             document.getElementById("Fname").value = this.cells[1].innerHTML;
             document.getElementById("Lname").value = this.cells[2].innerHTML;
             document.getElementById("address").value = this.cells[3].innerHTML;
@@ -66,6 +67,7 @@ function selectCust(){
             document.getElementById("homeph").value = this.cells[8].innerHTML;
             document.getElementById("busph").value = this.cells[9].innerHTML;
             document.getElementById("email").value = this.cells[10].innerHTML;
+            document.getElementById("agentid").value = this.cells[11].innerHTML;
         }
     }
 }

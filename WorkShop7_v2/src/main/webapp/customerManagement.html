@@ -61,7 +61,7 @@
                             <th >Home Phone Number</th>
                             <th >Business Phone Number</th>
                             <th >Email</th>
-                        <!--    <th>Agent representative</th>-->
+                            <!--<th>Agent representative</th>-->
                         </tr>
                     </thead>
                     <tbody id="customers-table-body" >
@@ -71,17 +71,20 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-1">
+            <!--<div class="col-sm-3">
                 <div class="vl"></div>
-            </div>
+            </div>-->
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <form> <!--action="/api/customer/putcustomer"-->
                     <h3>Add new Customer</h3>
                     <p>All fields are required.</p>
                     <hr>
                     <div class="row">
                         <!--<div class="col-sm-6">-->
+                            <label for="custid"><b>Customer ID</b></label>
+                            <input type="text" placeholder="Customer ID" name="custid" id="custid" required readonly>
+
                             <label for="Fname"><b>First Name</b></label>
                             <input type="text" placeholder="Enter First Name" name="Fname" id="Fname" required>
 
@@ -112,6 +115,9 @@
 
                             <label for="email"><b>Email</b></label>
                             <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                            <!--<label for="agentid"><b>Agent ID</b></label>
+                            <input type="text" placeholder="Enter Agent ID" name="agentid" id="agentid" required>-->
                        <!-- </div>-->
                     </div>
                     <hr>
@@ -120,7 +126,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                     <button type="submit" onclick="createCust()" class="createbtn" name="createbtn" id="createbtn">Create Customer</button>
-                    <button type="submit" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>
+                    <!--<button type="submit" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>-->
                     <button type="submit"  class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
                         </div>
                         <div class="col-sm-6">

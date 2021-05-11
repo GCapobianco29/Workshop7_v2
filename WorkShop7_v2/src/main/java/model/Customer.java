@@ -16,6 +16,7 @@ public class Customer {
     private String CustHomePhone;
     private String CustBusPhone;
     private String CustEmail;
+    private String AgentId;
 
     @Id
     @Column(name = "CustomerId", nullable = false)
@@ -126,6 +127,8 @@ public class Customer {
     public void setCustEmail(String custEmail) {
         CustEmail = custEmail;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

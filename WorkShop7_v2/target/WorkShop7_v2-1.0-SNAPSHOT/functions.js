@@ -56,6 +56,7 @@ function selectCust(){
     {
         table.rows[i].onclick = function ()
         {
+            document.getElementById("custid").value = this.cells[0].innerHTML;
             document.getElementById("Fname").value = this.cells[1].innerHTML;
             document.getElementById("Lname").value = this.cells[2].innerHTML;
             document.getElementById("address").value = this.cells[3].innerHTML;
@@ -66,6 +67,7 @@ function selectCust(){
             document.getElementById("homeph").value = this.cells[8].innerHTML;
             document.getElementById("busph").value = this.cells[9].innerHTML;
             document.getElementById("email").value = this.cells[10].innerHTML;
+            document.getElementById("agentid").value = this.cells[11].innerHTML;
         }
     }
 }
@@ -94,3 +96,49 @@ function selectCust(){
         }
     }
 }*/
+
+//add function from customerManagement.html
+function createCust()
+{
+    alert("you clicked create");
+
+    //get a collection of the child nodes insde the div of fields in the customerManagement.html file
+    var divChildren = $("#inputField input");
+
+    //create a JSON object shell
+    var myinsert = {};
+
+    //loop though the fields and add the field name and value to the object
+    for (i = 0; i < divChildren.length; i++)
+    {
+        myinsert[divChildren[i].id] = divChildren[i].value;
+    }
+
+    //console.log(JSON.stringify(myinsert));
+    alert(JSON.stringify(myinsert));
+
+    $.ajax({
+        url: "api/customer/putcustomer",
+        type: "PUT",
+        data: JSON.stringify(myinsert),
+        complete: function(req,stat){ $("#error").html(stat); },
+        success: function(data){ $("#message").html(data); },
+        dataType: "text",
+        contentType: "application/json; charset=UTF-8"
+    });
+}
+
+//delete function
+function deleteCust(customerId) {
+    alert("in deleteCustomer id:" + customerId);
+
+    $.ajax({
+        url:"api/customer/deletecustomer/" + customerId,
+        type:"DELETE",
+        complete:function(req,stat){ $("#error").html(stat); },
+        success:function(data){ $("#message").html(data); },
+        dataType:"text",
+        contentType:"application/json; charset=UTF-8"
+    });
+
+}
