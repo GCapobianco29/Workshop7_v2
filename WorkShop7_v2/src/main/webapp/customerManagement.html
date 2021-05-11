@@ -53,6 +53,7 @@
                             <th >ID</th>
                             <th >First Name</th>
                             <th >Last Name</th>
+<<<<<<< Updated upstream
                             <th>Address</th>
                             <th>City</th>
                             <th>Province</th>
@@ -62,6 +63,17 @@
                             <th>Business Phone Number</th>
                             <th>Email</th>
                             <th>Agent representative</th>-->
+=======
+                            <th >Address</th>
+                            <th >City</th>
+                            <th >Province</th>
+                            <th >Postal Code</th>
+                            <th >Country</th>
+                            <th >Home Phone Number</th>
+                            <th >Business Phone Number</th>
+                            <th >Email</th>
+                            <th>Agent representative</th>
+>>>>>>> Stashed changes
                         </tr>
                     </thead>
                     <tbody id="customers-table" >
@@ -80,6 +92,7 @@
                     <h3>Add new Customer</h3>
                     <p>All fields are required.</p>
                     <hr>
+<<<<<<< Updated upstream
                     <div id="message">message</div>
                     <div id="error">error</div>
                     <div>
@@ -121,6 +134,46 @@
 
                             <label for="AgentId"><b>Agent Id</b></label>
                             <input type="text" placeholder="Agent id" name="AgentId" id="AgentId">
+=======
+                    <div class="row" id="inputField">
+                        <!--<div class="col-sm-6">-->
+                            <label for="custid"><b>Customer ID</b></label>
+                            <input type="text" placeholder="Customer ID" name="custid" id="custid" required readonly>
+
+                            <label for="CustFirstName"><b>First Name</b></label>
+                            <input type="text" placeholder="Enter First Name" name="CustFirstName" id="CustFirstName" required>
+
+                            <label for="CustLastName"><b>Last Name</b></label>
+                            <input type="text" placeholder="Enter Last Name" name="CustLastName" id="CustLastName" required>
+
+                            <label for="CustAddress"><b>Address</b></label>
+                            <input type="text" placeholder="Enter Address" name="CustAddress" id="CustAddress" required>
+
+                            <label for="CustCity"><b>City</b></label>
+                            <input type="text" placeholder="Enter City" name="CustCity" id="CustCity" required>
+
+                            <label for="CustProv"><b>Province</b></label>
+                            <input type="text" maxlength="2" placeholder="Enter Province" name="CustProv" id="CustProv" required>
+                        <!--</div>-->
+                        <!--<div class="col-sm-6">-->
+                            <label for="CustPostal"><b>Postal Code</b></label>
+                            <input type="text" maxlength="7" placeholder="Enter Postal Code" name="CustPostal" id="CustPostal" required>
+
+                            <label for="CustCountry"><b>Country of Residence</b></label>
+                            <input type="text" placeholder="Enter Country" name="CustCountry" id="CustCountry" required>
+
+                            <label for="CustHomePhone"><b>Home Phone Number</b></label>
+                            <input type="text" placeholder="Enter Home Phone Number" name="CustHomePhone" id="CustHomePhone" required>
+
+                            <label for="CustBusPhone"><b>Business Phone Number</b></label>
+                            <input type="text" placeholder="Enter Business Phone Number" name="CustBusPhone" id="CustBusPhone" required>
+
+                            <label for="CustEmail"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="CustEmail" id="CustEmail" required>
+
+                            <label for="AgentId"><b>Agent ID</b></label>
+                            <input type="text" placeholder="Enter Agent ID" name="AgentId" id="AgentId" required>
+>>>>>>> Stashed changes
                        <!-- </div>-->
                     </div>
                     <hr>
@@ -133,7 +186,11 @@
                     <button type="submit" class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
                         </div>
                         <div class="col-sm-6">
+<<<<<<< Updated upstream
                     <button type="submit" class="deletebtn" onclick="deleteCust(document.getElementById('custId').value)" name="deletebtn" id="deletebtn">Delete Customer</button>
+=======
+                    <button type="submit" onclick="deleteCust(document.getElementById('custid').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </form>

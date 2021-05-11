@@ -42,10 +42,39 @@ function populateCustTable(json)
             temp += "<td>"+c.CustCountry+"</td>";
             temp += "<td>"+c.CustHomePhone+"</td>";
             temp += "<td>"+c.CustBusPhone+"</td>";
+<<<<<<< Updated upstream
             temp += "<td>"+c.CustEmail+"</td>";
             /*temp += "<td>"+c.agentId+"</td></tr>";*/
         })
         document.getElementById("customers-table").innerHTML = temp;
+=======
+            temp += "<td>"+c.CustEmail+"</td></tr>";
+            temp += "<td>"+c.AgentId+"</td></tr>";
+        })
+        document.getElementById("customers-table-body").innerHTML = temp;
+    }
+}
+
+function selectCust(){
+    var table = document.getElementById('customers-table-body');
+    for(var i = 0; i < table.rows.length; i++)
+    {
+        table.rows[i].onclick = function ()
+        {
+            document.getElementById("custid").value = this.cells[0].innerHTML;
+            document.getElementById("CustFirstName").value = this.cells[1].innerHTML;
+            document.getElementById("CustLastName").value = this.cells[2].innerHTML;
+            document.getElementById("CustAddress").value = this.cells[3].innerHTML;
+            document.getElementById("CustCity").value = this.cells[4].innerHTML;
+            document.getElementById("CustProv").value = this.cells[5].innerHTML;
+            document.getElementById("CustPostal").value = this.cells[6].innerHTML;
+            document.getElementById("CustCountry").value = this.cells[7].innerHTML;
+            document.getElementById("CustHomePhone").value = this.cells[8].innerHTML;
+            document.getElementById("CustBusPhone").value = this.cells[9].innerHTML;
+            document.getElementById("CustEmail").value = this.cells[10].innerHTML;
+            document.getElementById("AgentId").value = this.cells[11].innerHTML;
+        }
+>>>>>>> Stashed changes
     }
 }
 
