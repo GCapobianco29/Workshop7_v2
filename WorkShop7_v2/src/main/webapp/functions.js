@@ -143,8 +143,6 @@ function deleteCust(customerId) {
 
 }
 
-
-//-------------function to save a customer not completed
 <!--    function SaveCustomer()-->
 <!--    {-->
 <!--        document.getElementById("Fname").value;-->
