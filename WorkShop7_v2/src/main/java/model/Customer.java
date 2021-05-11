@@ -170,4 +170,21 @@ public class Customer {
         result = 31 * result + (CustEmail != null ? CustEmail.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "CustomerId=" + CustomerId +
+                ", CustFirstName='" + CustFirstName + '\'' +
+                ", CustLastName='" + CustLastName + '\'' +
+                ", CustAddress='" + CustAddress + '\'' +
+                ", CustCity='" + CustCity + '\'' +
+                ", CustProv='" + CustProv + '\'' +
+                ", CustPostal='" + CustPostal + '\'' +
+                ", CustCountry='" + CustCountry + '\'' +
+                ", CustHomePhone='" + CustHomePhone + '\'' +
+                ", CustBusPhone='" + CustBusPhone + '\'' +
+                ", CustEmail='" + CustEmail + '\'' +
+                '}';
+    }
 }
