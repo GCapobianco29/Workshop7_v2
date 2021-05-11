@@ -3,7 +3,6 @@ package com.example.WorkShop7_v2;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 import model.Customer;
 
 import javax.persistence.EntityManager;
@@ -12,9 +11,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.lang.reflect.Type;
 import java.util.List;
-
+//------Bing He--------the following is for WorkShop8 Android app to use as data service for listAllCustomer view ------
 @Path("/customer")
 public class CustomerService {
     @GET
@@ -22,7 +20,7 @@ public class CustomerService {
     @Produces(MediaType.APPLICATION_JSON)
     public String getCustNames() {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default"); //where the mapping is
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Query query = em.createQuery("select c from Customer c");
         List<Customer> list = query.getResultList();
@@ -37,7 +35,7 @@ public class CustomerService {
 
         return jsonArray.toString();
     }
-
+//-------Gabriel---------the following is for WorkShop7 to use as data service for listAllCustomer table---------------
     @GET
     @Path("/getcustomerslist")
     @Produces(MediaType.APPLICATION_JSON)
@@ -53,6 +51,20 @@ public class CustomerService {
         return gson.toJson(a);
     }
 
+//------------------Sheyi---------used to get customer--------------------------------
+    @GET
+    @Path("/getcustomer/{ customerId }")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAgent(@PathParam("customerId") int customerId)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer Customer = em.find(Customer.class, customerId);
+        Gson gson = new Gson();
+        return gson.toJson(Customer);
+}
+
+//--------Angelito---------------------------------------------------------
     //add new data into database (PUT request)
     @PUT
     @Path("/putcustomer")
@@ -63,9 +75,8 @@ public class CustomerService {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
-        Type type = new TypeToken<Customer>() {}.getType();
-        Customer cust = gson.fromJson(jsonString, type);
-        //Customer cust = gson.fromJson(jsonString, Customer.class);
+        Customer cust = gson.fromJson(jsonString, Customer.class);
+        System.out.println(cust);
         em.getTransaction().begin();
         em.persist(cust);
         em.getTransaction().commit();
@@ -82,7 +93,7 @@ public class CustomerService {
 
         return response;
     }
-
+//--------Angelito---------------------------------------------------------
     //delete data from database (DELETE request)
     @DELETE
     @Path("/deletecustomer/{ customerId }")
@@ -109,8 +120,21 @@ public class CustomerService {
 
         return response;
     }
-<<<<<<< Updated upstream
-=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @POST
@@ -137,5 +161,4 @@ public class CustomerService {
         }
     }
 
->>>>>>> Stashed changes
 }

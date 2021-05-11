@@ -21,6 +21,30 @@
 </head>
 
 <body>
+<!--<script>-->
+//-------------function to save a customer not completed
+<!--    function SaveCustomer()-->
+<!--    {-->
+<!--        document.getElementById("Fname").value;-->
+<!--        document.getElementById("Lname").value;-->
+<!--        document.getElementById("address").value;-->
+<!--        document.getElementById("city").value;-->
+<!--        document.getElementById("prov").value;-->
+<!--        document.getElementById("postal").value;-->
+<!--        document.getElementById("country").value;-->
+<!--        document.getElementById("homeph").value;-->
+<!--        document.getElementById("busph").value;-->
+<!--        document.getElementById("email").value;-->
+
+<!--        Connection conn = new DBConnectionManager().getConnection();-->
+<!--        switch (mode[0]){​​​​​-->
+<!--            case "edit":-->
+<!--                String sql_edit = "UPDATE `customers` SET `CustFirstName`=?,`CustLastName`=?,`CustAddress`=?,`CustCity`=?,"-->
+<!--                + "`CustProv`=?,`CustPostal`=?,`CustCountry`=?,`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=?,"-->
+<!--                + "`AgentId`=? WHERE CustomerId=?";-->
+<!--    }-->
+<!--</script>-->
+
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a href="index.jsp" class="navbar-brand">The Travel Experts Co.</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -42,28 +66,17 @@
         </div>
     </nav>
 </br>
-    <div class="container">
+    <div style="padding: 30px">
         <div class="row">
-            <div class="col-sm-6">
-                <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">-->
+            <div class="col-sm-8">
+                <input type="text" id="myInput" onkeyup="custFilter()" placeholder="Search for names..">
                 <h3>Customer Details</h3>
-                <table> <!--id="myTable"-->
+                <table id="customer-table"> <!--id="myTable"-->
                     <thead>
                         <tr ><!--class="header"-->
                             <th >ID</th>
                             <th >First Name</th>
                             <th >Last Name</th>
-<<<<<<< Updated upstream
-                            <th>Address</th>
-                            <th>City</th>
-                            <th>Province</th>
-                            <th>Postal Code</th>
-                            <th>Country</th>
-                            <!--<th>Home Phone Number</th>
-                            <th>Business Phone Number</th>
-                            <th>Email</th>
-                            <th>Agent representative</th>-->
-=======
                             <th >Address</th>
                             <th >City</th>
                             <th >Province</th>
@@ -73,34 +86,29 @@
                             <th >Business Phone Number</th>
                             <th >Email</th>
                             <th>Agent representative</th>
->>>>>>> Stashed changes
                         </tr>
                     </thead>
-                    <tbody id="customers-table" >
+                    <tbody id="customers-table-body" >
                             <tr>
-                                <td ></td>
+                                <td></td>
                             </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-2">
+            <!--<div class="col-sm-3">
                 <div class="vl"></div>
-            </div>
+            </div>-->
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <form> <!--action="/api/customer/putcustomer"-->
                     <h3>Add new Customer</h3>
                     <p>All fields are required.</p>
                     <hr>
-<<<<<<< Updated upstream
-                    <div id="message">message</div>
-                    <div id="error">error</div>
-                    <div>
-                        <label for="custId"><b>Customer ID</b></label>
-                        <input type="text" id="custId" name="custId" >
-                    </div>
                     <div class="row" id="inputField">
                         <!--<div class="col-sm-6">-->
+                            <label for="custid"><b>Customer ID</b></label>
+                            <input type="text" placeholder="Customer ID" name="custid" id="custid" required readonly>
+
                             <label for="CustFirstName"><b>First Name</b></label>
                             <input type="text" placeholder="Enter First Name" name="Fname" id="CustFirstName" required>
 
@@ -114,17 +122,17 @@
                             <input type="text" placeholder="Enter City" name="city" id="CustCity" required>
 
                             <label for="CustProv"><b>Province</b></label>
-                            <input type="text" placeholder="Enter Province" name="prov" id="CustProv" required>
+                            <input type="text" maxlength="2" placeholder="Enter Province" name="prov" id="CustProv" required>
                         <!--</div>-->
                         <!--<div class="col-sm-6">-->
                             <label for="CustPostal"><b>Postal Code</b></label>
-                            <input type="text" placeholder="Enter Postal Code" name="postal" id="CustPostal" required>
+                            <input type="text" maxlength="7" placeholder="Enter Postal Code" name="postal" id="CustPostal" required>
 
                             <label for="CustCountry"><b>Country of Residence</b></label>
-                            <input type="text" placeholder="Enter Country" name="country" id="CustCountry" required>
+                            <input type="text" placeholder="Enter Country" name="country" id="CustCountry">
 
                             <label for="CustHomePhone"><b>Home Phone Number</b></label>
-                            <input type="text" placeholder="Enter Home Phone Number" name="homeph" id="CustHomePhone" required>
+                            <input type="text" placeholder="Enter Home Phone Number" name="homeph" id="CustHomePhone">
 
                             <label for="CustBusPhone"><b>Business Phone Number</b></label>
                             <input type="text" placeholder="Enter Business Phone Number" name="busph" id="CustBusPhone" required>
@@ -132,48 +140,8 @@
                             <label for="CustEmail"><b>Email</b></label>
                             <input type="text" placeholder="Enter Email" name="email" id="CustEmail" required>
 
-                            <label for="AgentId"><b>Agent Id</b></label>
-                            <input type="text" placeholder="Agent id" name="AgentId" id="AgentId">
-=======
-                    <div class="row" id="inputField">
-                        <!--<div class="col-sm-6">-->
-                            <label for="custid"><b>Customer ID</b></label>
-                            <input type="text" placeholder="Customer ID" name="custid" id="custid" required readonly>
-
-                            <label for="CustFirstName"><b>First Name</b></label>
-                            <input type="text" placeholder="Enter First Name" name="CustFirstName" id="CustFirstName" required>
-
-                            <label for="CustLastName"><b>Last Name</b></label>
-                            <input type="text" placeholder="Enter Last Name" name="CustLastName" id="CustLastName" required>
-
-                            <label for="CustAddress"><b>Address</b></label>
-                            <input type="text" placeholder="Enter Address" name="CustAddress" id="CustAddress" required>
-
-                            <label for="CustCity"><b>City</b></label>
-                            <input type="text" placeholder="Enter City" name="CustCity" id="CustCity" required>
-
-                            <label for="CustProv"><b>Province</b></label>
-                            <input type="text" maxlength="2" placeholder="Enter Province" name="CustProv" id="CustProv" required>
-                        <!--</div>-->
-                        <!--<div class="col-sm-6">-->
-                            <label for="CustPostal"><b>Postal Code</b></label>
-                            <input type="text" maxlength="7" placeholder="Enter Postal Code" name="CustPostal" id="CustPostal" required>
-
-                            <label for="CustCountry"><b>Country of Residence</b></label>
-                            <input type="text" placeholder="Enter Country" name="CustCountry" id="CustCountry" required>
-
-                            <label for="CustHomePhone"><b>Home Phone Number</b></label>
-                            <input type="text" placeholder="Enter Home Phone Number" name="CustHomePhone" id="CustHomePhone" required>
-
-                            <label for="CustBusPhone"><b>Business Phone Number</b></label>
-                            <input type="text" placeholder="Enter Business Phone Number" name="CustBusPhone" id="CustBusPhone" required>
-
-                            <label for="CustEmail"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="CustEmail" id="CustEmail" required>
-
                             <label for="AgentId"><b>Agent ID</b></label>
-                            <input type="text" placeholder="Enter Agent ID" name="AgentId" id="AgentId" required>
->>>>>>> Stashed changes
+                            <input type="text" maxlength="2" placeholder="Enter Agent ID" name="agentid" id="AgentId">
                        <!-- </div>-->
                     </div>
                     <hr>
@@ -181,16 +149,12 @@
                     <!--<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>-->
                     <div class="row">
                         <div class="col-sm-6">
-                    <button type="submit" class="createbtn" onclick="createCust()" name="createbtn" id="createbtn">Create Customer</button>
-                    <button type="submit" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>
-                    <button type="submit" class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
+                    <button type="submit" onclick="createCust()" class="createbtn" name="createbtn" id="createbtn">Create Customer</button>
+                    <!--<button type="submit" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>-->
+                    <button type="submit"  class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
                         </div>
                         <div class="col-sm-6">
-<<<<<<< Updated upstream
-                    <button type="submit" class="deletebtn" onclick="deleteCust(document.getElementById('custId').value)" name="deletebtn" id="deletebtn">Delete Customer</button>
-=======
                     <button type="submit" onclick="deleteCust(document.getElementById('custid').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </form>

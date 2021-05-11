@@ -1,0 +1,167 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 60%;
+    border: 2px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    /*width: 50%;*/
+}
+tr:hover{
+    color: orange;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+.main {
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+#myInput {
+    background-image: url('image/search-icon-vector-editable-eps10-260nw-1263924991.jpg'); /* Add a search icon to input */
+    background-position: left; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 94%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    font-weight: bold;
+}
+
+/*#customers-table-body {
+    border-collapse: collapse; !* Collapse borders *!
+    width: 100%; !* Full-width *!
+    border: 1px solid #ddd; !* Add a grey border *!
+    font-size: 18px; !* Increase font-size *!
+}
+
+#customers-table-body th, #customers-table-body td {
+    text-align: left; !* Left-align text *!
+    padding: 12px; !* Add padding *!
+}
+
+#customers-table-body tr {
+    !* Add a bottom border to all table rows *!
+    border-bottom: 1px solid #ddd;
+}
+
+#customers-table-body tr.header, #customers-table-body tr:hover {
+    !* Add a grey background color to the table header and on hover *!
+    background-color: #f1f1f1;
+}*/
+
+
+/************************************ Add new customer ***********************************************************/
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 20px;
+}
+
+/* Set a style for the submit/create button */
+.createbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.createbtn:hover {
+    opacity:2;
+}
+/* Set a style for the edit button */
+.editbtn {
+    background-color: orange;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.editbtn:hover {
+    opacity:2;
+}
+/* Set a style for the save button */
+.savebtn {
+    background-color: blue;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.savebtn:hover {
+    opacity: 2;
+}
+/* Set a style for the delete button */
+.deletebtn {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.deletebtn:hover {
+    opacity:2;
+}
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+/************************************************************************************/
+.vl {
+    border-left: 7px solid darkblue;
+    height: 1850px;
+    position: relative;
+    left: 50%;
+    right: 50%;
+   /* margin-left: -3px;*/
+    top: 20px;
+}

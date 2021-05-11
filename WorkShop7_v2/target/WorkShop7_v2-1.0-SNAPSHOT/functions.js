@@ -13,7 +13,8 @@
     }, "json");
 }*/
 
-const tableBody = document.querySelector("#customers-table > tbody");
+document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
+//const tableBody = document.querySelector("#customers-table > tbody");
 
 function loadCustomers()
 {
@@ -31,9 +32,9 @@ function populateCustTable(json)
     {
         var temp = "";
         json.forEach((c) =>{
-            temp += "<tr>";
-            temp += "<td onclick='clicked()' id='customerId'>"+c.CustomerId+"</td>";
-            temp += "<td>"+c.CustFirstName+"</td>";
+            temp += "<tr onclick='selectCust()' style='cursor: pointer;'>";
+            temp += "<td>"+c.CustomerId+"</td>";
+            temp += "<td class='td'>"+c.CustFirstName+"</td>";
             temp += "<td>"+c.CustLastName+"</td>";
             temp += "<td>"+c.CustAddress+"</td>";
             temp += "<td>"+c.CustCity+"</td>";
@@ -42,13 +43,7 @@ function populateCustTable(json)
             temp += "<td>"+c.CustCountry+"</td>";
             temp += "<td>"+c.CustHomePhone+"</td>";
             temp += "<td>"+c.CustBusPhone+"</td>";
-<<<<<<< Updated upstream
             temp += "<td>"+c.CustEmail+"</td>";
-            /*temp += "<td>"+c.agentId+"</td></tr>";*/
-        })
-        document.getElementById("customers-table").innerHTML = temp;
-=======
-            temp += "<td>"+c.CustEmail+"</td></tr>";
             temp += "<td>"+c.AgentId+"</td></tr>";
         })
         document.getElementById("customers-table-body").innerHTML = temp;
@@ -74,26 +69,23 @@ function selectCust(){
             document.getElementById("CustEmail").value = this.cells[10].innerHTML;
             document.getElementById("AgentId").value = this.cells[11].innerHTML;
         }
->>>>>>> Stashed changes
     }
 }
 
-<<<<<<< Updated upstream
-document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
-=======
-document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
 
-/*function myFunction() {
+
+
+function custFilter() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("customers-table-body");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
+        td = tr[i].getElementsByClassName("td")[0];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -103,9 +95,8 @@ document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
             }
         }
     }
-}*/
+}
 
-//----------Angelito--------------------------------------------------
 //add function from customerManagement.html
 function createCust()
 {
@@ -137,7 +128,6 @@ function createCust()
     });
 }
 
-//----------Angelito--------------------------------------------------
 //delete function
 function deleteCust(customerId) {
     alert("in deleteCustomer id:" + customerId);
@@ -152,10 +142,3 @@ function deleteCust(customerId) {
     });
 
 }
-
-//test onclick
-function clicked(){
-    alert("clicked" + document.getElementById("customerId").innerText);
-    document.getElementById("custId").value = document.getElementById("customerId").innerText;
-}
->>>>>>> Stashed changes
