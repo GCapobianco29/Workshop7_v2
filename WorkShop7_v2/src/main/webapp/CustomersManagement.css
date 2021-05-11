@@ -1,13 +1,17 @@
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 40%;
+    width: 80%;
     border: 2px solid #ddd;
 }
 
 th, td {
     text-align: left;
-    padding: 5px;
+    padding: 8px;
+    /*width: 50%;*/
+}
+tr:hover{
+    color: orange;
 }
 
 tr:nth-child(even) {
@@ -151,9 +155,9 @@ a {
 /************************************************************************************/
 .vl {
     border-left: 7px solid darkblue;
-    height: 1900px;
+    height: 1850px;
     position: absolute;
-    left: 55%;
+    left: 45%;
     margin-left: -3px;
-    top: 30px;
+    top: 20px;
 }

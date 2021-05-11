@@ -13,7 +13,8 @@
     }, "json");
 }*/
 
-const tableBody = document.querySelector("#customers-table > tbody");
+document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
+//const tableBody = document.querySelector("#customers-table > tbody");
 
 function loadCustomers()
 {
@@ -31,7 +32,7 @@ function populateCustTable(json)
     {
         var temp = "";
         json.forEach((c) =>{
-            temp += "<tr>";
+            temp += "<tr onclick='selectCust()' style='cursor: pointer;'>";
             temp += "<td>"+c.CustomerId+"</td>";
             temp += "<td>"+c.CustFirstName+"</td>";
             temp += "<td>"+c.CustLastName+"</td>";
@@ -39,17 +40,38 @@ function populateCustTable(json)
             temp += "<td>"+c.CustCity+"</td>";
             temp += "<td>"+c.CustProv+"</td>";
             temp += "<td>"+c.CustPostal+"</td>";
-            temp += "<td>"+c.CustCountry+"</td></tr>";
-          /*  temp += "<td>"+c.CustHomePhone+"</td>";
+            temp += "<td>"+c.CustCountry+"</td>";
+            temp += "<td>"+c.CustHomePhone+"</td>";
             temp += "<td>"+c.CustBusPhone+"</td>";
-            temp += "<td>"+c.CustEmail+"</td>";
-            temp += "<td>"+c.agentId+"</td></tr>";*/
+            temp += "<td>"+c.CustEmail+"</td></tr>";
+            /*temp += "<td>"+c.agentId+"</td></tr>";*/
         })
-        document.getElementById("customers-table").innerHTML = temp;
+        document.getElementById("customers-table-body").innerHTML = temp;
     }
 }
 
-document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
+function selectCust(){
+    var table = document.getElementById('customers-table-body');
+    for(var i = 0; i < table.rows.length; i++)
+    {
+        table.rows[i].onclick = function ()
+        {
+            document.getElementById("Fname").value = this.cells[1].innerHTML;
+            document.getElementById("Lname").value = this.cells[2].innerHTML;
+            document.getElementById("address").value = this.cells[3].innerHTML;
+            document.getElementById("city").value = this.cells[4].innerHTML;
+            document.getElementById("prov").value = this.cells[5].innerHTML;
+            document.getElementById("postal").value = this.cells[6].innerHTML;
+            document.getElementById("country").value = this.cells[7].innerHTML;
+            document.getElementById("homeph").value = this.cells[8].innerHTML;
+            document.getElementById("busph").value = this.cells[9].innerHTML;
+            document.getElementById("email").value = this.cells[10].innerHTML;
+        }
+    }
+}
+
+
+
 
 /*function myFunction() {
     // Declare variables
