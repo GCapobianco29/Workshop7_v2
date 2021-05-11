@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
     }
 }*/
 
+//----------Angelito--------------------------------------------------
 //add function from customerManagement.html
 function createCust()
 {
@@ -136,6 +137,7 @@ function createCust()
     });
 }
 
+//----------Angelito--------------------------------------------------
 //delete function
 function deleteCust(customerId) {
     alert("in deleteCustomer id:" + customerId);
