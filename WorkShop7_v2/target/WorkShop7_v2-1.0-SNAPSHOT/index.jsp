@@ -17,10 +17,10 @@
     <a name="Top"></a>
 
 
-    <link rel="stylesheet" href="./Login.css" type="text/css">
+    <link rel="stylesheet" href="./index.css" type="text/css">
     <title>Login</title>
 </head>
-<body style="background-image: url('image/vacation.jpg')">
+<body style="background-image: url('image/vacation.jpg'); background-position: center; background-repeat: no-repeat;">
 <script>
 
     function btnLogin()
@@ -45,7 +45,7 @@
 <div class = "LargeContainer">
 
 
-    <div class="container" style="background-color: grey;margin-top: 5%; border-radius: 25px;padding-top: 2%; padding-bottom: 3%;margin-left: auto; margin-right: auto">
+    <div class="container" style="background-color: dimgrey;margin-top: 5%; border-radius: 25px;padding-top: 2%; padding-bottom: 3%;margin-left: auto; margin-right: auto">
         <h1 style = "margin-bottom: 2%; text-align: center"> Welcome to Travel Expert Please Login</h1>
         <br />
         <div class = "UsernamePassword" style ="text-align: center">
@@ -60,7 +60,7 @@
             <button type="submit" onclick="btnLogin()" style = "background-color: #008CBA; min-width: 10%; margin-left: 1%; color: white; min-height: 50px; "><b>Login</b></button>
 
                 <label>
-                    <input type="checkbox" checked="checked" name="remember" style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box; color: #0000ff"> Remember me
+                    <input type="checkbox" checked="checked" name="remember" style= "border-radius: 4px;padding: 12px 20px;box-sizing: border-box; color: #0000ff"> Remember me
                 </label>
             </div>
         </div>

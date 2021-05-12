@@ -93,6 +93,33 @@ public class CustomerService {
 
         return response;
     }
+
+    @POST
+    @Path("/updatecustomer")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String updateCustomer(String jsonString)
+    {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Gson gson = new Gson();
+        /*Customer Customer = em.find(Customer.class, customerId);*/
+        Customer custinfo = gson.fromJson(jsonString, Customer.class);
+        System.out.println(custinfo);
+        em.getTransaction().begin();
+        Customer result = em.merge(custinfo);
+        em.getTransaction().commit();
+        if (result != null)
+        {
+            return "{ 'message':'Update Successful' }";
+        }
+        else
+        {
+            return "{ 'message':'Update Failed' }";
+        }
+    }
+
+
 //--------Angelito---------------------------------------------------------
     //delete data from database (DELETE request)
     @DELETE
@@ -123,42 +150,5 @@ public class CustomerService {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @POST
-    @Path("/updatecustomer")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String updateCustomer(String jsonString)
-    {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
-        EntityManager em = factory.createEntityManager();
-        Gson gson = new Gson();
-        Customer Customer = gson.fromJson(jsonString, Customer.class);
-        System.out.println(Customer);
-        em.getTransaction().begin();
-        Customer result = em.merge(Customer);
-        em.getTransaction().commit();
-        if (result != null)
-        {
-            return "{ 'message':'Update Successful' }";
-        }
-        else
-        {
-            return "{ 'message':'Update Failed' }";
-        }
-    }
 
 }

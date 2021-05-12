@@ -1,12 +1,12 @@
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 60%;
-    border: 2px solid #ddd;
+    width: 90%;
+    border: 3px solid dimgrey;
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 8px;
     /*width: 50%;*/
 }
@@ -15,7 +15,10 @@ tr:hover{
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: lightgray;
+}
+tr:nth-child(odd) {
+    background-color: ghostwhite;
 }
 .navbar {
     position: fixed; /* Set the navbar to fixed position */
@@ -27,12 +30,12 @@ tr:nth-child(even) {
 }
 
 #myInput {
-    background-image: url('image/search-icon-vector-editable-eps10-260nw-1263924991.jpg'); /* Add a search icon to input */
+    background-image: url('image/search--v2.png'); /* Add a search icon to input */
     background-position: left; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 94%; /* Full-width */
+    width: 90%; /* Full-width */
     font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
+    padding: 12px 20px 12px 60px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
     font-weight: bold;
@@ -80,8 +83,8 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Overwrite default styles of hr */
-hr {
-    border: 1px solid #f1f1f1;
+.hr {
+    border: 1px solid whitesmoke;
     margin-bottom: 20px;
 }
 

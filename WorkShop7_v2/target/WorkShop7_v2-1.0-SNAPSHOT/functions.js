@@ -69,6 +69,12 @@ function selectCust(){
             document.getElementById("CustBusPhone").value = this.cells[9].innerHTML;
             document.getElementById("CustEmail").value = this.cells[10].innerHTML;
             document.getElementById("AgentId").value = this.cells[11].innerHTML;
+
+            var divChildren = $("#inputField input");
+            for (i = 0; i < divChildren.length; i++)
+            {
+                divChildren[i].readOnly = true;
+            }
         }
     }
 }
@@ -102,26 +108,40 @@ function custFilter() {
 function createBtn()
 {
     //set mode to 2
-    mode = 2;
+    mode = 1;
 
     //clear all fields
     var divChildren = $("#inputField input");
     for (i = 0; i < divChildren.length; i++)
     {
         divChildren[i].value = "";
+        divChildren[i].readOnly = false;
     }
 }
 
-//when submit button is clicked
-function submitBtn()
+function editBtn()
 {
-    alert(mode);
+    var divChildren = $("#inputField input");
+    for (i = 1; i < divChildren.length; i++)
+    {
+        divChildren[i].readOnly = false;
+    }
+    mode = 2;
+}
+
+//when submit button is clicked
+function saveBtn()
+{
+    alert("mode: " + mode);
     //if or case statement
-    if(mode == 2)
+    if(mode == 1)
     {
         addCust();
     }
-    //else
+    else
+    {
+        editCust();
+    }
 }
 
 //add function from customerManagement.html
@@ -129,7 +149,7 @@ function addCust()
 {
     alert("you clicked create");
 
-    //get a collection of the child nodes insde the div of fields in the customerManagement.html file
+    //get a collection of the child nodes inside the div of fields in the customerManagement.html file
     var divChildren = $("#inputField input");
 
     //create a JSON object shell
@@ -147,6 +167,34 @@ function addCust()
     $.ajax({
         url: "api/customer/putcustomer",
         type: "PUT",
+        data: JSON.stringify(myinsert),
+        complete: function(req,stat){ $("#error").html(stat); },
+        success: function(data){ $("#message").html(data); },
+        dataType: "text",
+        contentType: "application/json; charset=UTF-8"
+    });
+}
+
+// Edit function
+function editCust()
+{
+    //get a collection of the child nodes inside the div of fields in the customerManagement.html file
+    var divChildren = $("#inputField input");
+
+    //create a JSON object shell
+    var myinsert = {};
+
+
+
+    //loop though the fields and add the field name and value to the object
+    for (i = 0; i < divChildren.length; i++)
+    {
+        myinsert[divChildren[i].id] = divChildren[i].value;
+    }
+    alert(JSON.stringify(myinsert));
+    $.ajax({
+        url: "api/customer/updatecustomer",
+        type: "POST",
         data: JSON.stringify(myinsert),
         complete: function(req,stat){ $("#error").html(stat); },
         success: function(data){ $("#message").html(data); },
