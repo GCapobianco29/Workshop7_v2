@@ -184,15 +184,13 @@ function editCust()
     //create a JSON object shell
     var myinsert = {};
 
-
-
     //loop though the fields and add the field name and value to the object
     for (i = 0; i < divChildren.length; i++)
     {
         myinsert[divChildren[i].id] = divChildren[i].value;
     }
     alert(JSON.stringify(myinsert));
-    $.ajax({
+    var test = $.ajax({
         url: "api/customer/updatecustomer",
         type: "POST",
         data: JSON.stringify(myinsert),
