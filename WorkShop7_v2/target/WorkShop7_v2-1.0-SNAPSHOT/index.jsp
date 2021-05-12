@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./index.css" type="text/css">
     <title>Login</title>
 </head>
-<body style="background-image: url('image/vacation.jpg'); background-position: center; background-repeat: no-repeat;">
+<body style="background-image: url('image/vacation.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <script>
 
     function btnLogin()
@@ -45,23 +45,27 @@
 <div class = "LargeContainer">
 
 
-    <div class="container" style="background-color: dimgrey;margin-top: 5%; border-radius: 25px;padding-top: 2%; padding-bottom: 3%;margin-left: auto; margin-right: auto">
-        <h1 style = "margin-bottom: 2%; text-align: center"> Welcome to Travel Expert Please Login</h1>
+    <div class="container" style="margin-top: 5%; border-radius: 25px;padding-top: 2%; padding-bottom: 3%;margin-left: auto; margin-right: auto">
+        <h1 style = "margin-bottom: 2%; text-align: center"> Welcome to Travel Expert</h1>
+        <h2 style = "margin-bottom: 2%; text-align: center">Please Login</h2>
         <br />
-        <div class = "UsernamePassword" style ="text-align: center">
-                <input id = "text" class="text" placeholder="Enter Username" name="uname" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
-                <br/>
-                <br/>
-                <br/>
-                <input type="password" id = "password" class="password" placeholder="Enter Password" name="psw" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
-                <br/>
-                <br/>
+                <div class = "UsernamePassword" style ="text-align: center">
+                        <input id = "text" class="text" placeholder="Enter Username" name="uname" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <input type="password" id = "password" class="password" placeholder="Enter Password" name="psw" required style = "border-radius: 4px;padding: 12px 20px;box-sizing: border-box">
+                        <br/>
+                        <br/>
 
-            <button type="submit" onclick="btnLogin()" style = "background-color: #008CBA; min-width: 10%; margin-left: 1%; color: white; min-height: 50px; "><b>Login</b></button>
+                    <button type="submit" onclick="btnLogin()" class="loginbtn"><b>Login</b></button>
 
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style= "border-radius: 4px;padding: 12px 20px;box-sizing: border-box; color: #0000ff"> Remember me
-                </label>
+                </br></br>
+
+
+                    <input type="checkbox" checked="checked" name="remember" style= "border-radius: 4px;padding: 12px 20px;box-sizing: border-box; color: white"><label><b>Remember me</b></label>
+
+                </div>
             </div>
         </div>
 
