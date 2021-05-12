@@ -113,9 +113,9 @@ function createBtn()
 }
 
 //when submit button is clicked
-function submitBtn()
+function saveBtn()
 {
-    alert(mode);
+    alert("mode: " + mode);
     //if or case statement
     if(mode == 2)
     {
@@ -129,7 +129,7 @@ function addCust()
 {
     alert("you clicked create");
 
-    //get a collection of the child nodes insde the div of fields in the customerManagement.html file
+    //get a collection of the child nodes inside the div of fields in the customerManagement.html file
     var divChildren = $("#inputField input");
 
     //create a JSON object shell
