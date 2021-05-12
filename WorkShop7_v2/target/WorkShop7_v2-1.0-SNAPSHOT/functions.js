@@ -57,7 +57,7 @@ function selectCust(){
     {
         table.rows[i].onclick = function ()
         {
-            document.getElementById("custid").value = this.cells[0].innerHTML;
+            document.getElementById("CustomerId").value = this.cells[0].innerHTML;
             document.getElementById("CustFirstName").value = this.cells[1].innerHTML;
             document.getElementById("CustLastName").value = this.cells[2].innerHTML;
             document.getElementById("CustAddress").value = this.cells[3].innerHTML;

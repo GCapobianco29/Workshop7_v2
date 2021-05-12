@@ -81,8 +81,8 @@
                     <hr class="hr">
                     <div class="row" id="inputField" style="color: white">
                         <!--<div class="col-sm-6">-->
-                            <label for="custid" hidden><b>Customer ID</b></label>
-                            <input type="text" placeholder="Customer ID" name="custid" id="custid" required readonly hidden>
+                            <label for="CustomerId" hidden><b>Customer ID</b></label>
+                            <input type="text" placeholder="Customer ID" name="custid" id="CustomerId" required readonly hidden>
 
                             <label for="CustFirstName"><b>First Name</b></label>
                             <input type="text" placeholder="Enter First Name" name="Fname" id="CustFirstName" required readonly>
@@ -129,7 +129,7 @@
                     <button type="submit"  onclick="saveBtn()" class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
                         </div>
                         <div class="col-sm-6">
-                    <button type="submit" onclick="deleteCust(document.getElementById('custid').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
+                    <button type="submit" onclick="deleteCust(document.getElementById('CustomerId').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
                         </div>
                     </div>
                 </form>
