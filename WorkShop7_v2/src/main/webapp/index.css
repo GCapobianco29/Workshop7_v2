@@ -9,21 +9,21 @@
 
 .container {
 
-    background: rgba(211, 211, 211, 0.5);
+    background: rgba(211, 211, 211, 0.6);
    /* background-color: #04AA6D;*/
     margin: 10%;
 
 }
 
 .loginbtn {
-    background-color: #04AA6D;
+    background-color: dodgerblue;
     color: white;
     padding: 12px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 60%;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .loginbtn:hover {

@@ -27,6 +27,7 @@ function loadCustomers()
         }
 }
 
+// Populate the customer details table
 function populateCustTable(json)
 {
     if(json.length > 0)
@@ -51,6 +52,7 @@ function populateCustTable(json)
     }
 }
 
+//  Display all the selected customer info
 function selectCust(){
     var table = document.getElementById('customers-table-body');
     for(var i = 0; i < table.rows.length; i++)
@@ -81,7 +83,7 @@ function selectCust(){
 
 
 
-
+// Filter the customers table by name with a search bar
 function custFilter() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
@@ -112,11 +114,12 @@ function createBtn()
 
     //clear all fields
     var divChildren = $("#inputField input");
-    for (i = 0; i < divChildren.length; i++)
+    for (i = 1; i < divChildren.length; i++)
     {
         divChildren[i].value = "";
         divChildren[i].readOnly = false;
     }
+    document.getElementById("CustFirstName").focus();
 }
 
 function editBtn()
@@ -127,12 +130,13 @@ function editBtn()
         divChildren[i].readOnly = false;
     }
     mode = 2;
+    document.getElementById("CustFirstName").focus();
+
 }
 
 //when submit button is clicked
 function saveBtn()
 {
-    alert("mode: " + mode);
     //if or case statement
     if(mode == 1)
     {
@@ -147,7 +151,6 @@ function saveBtn()
 //add function from customerManagement.html
 function addCust()
 {
-    alert("you clicked create");
 
     //get a collection of the child nodes inside the div of fields in the customerManagement.html file
     var divChildren = $("#inputField input");
@@ -156,13 +159,10 @@ function addCust()
     var myinsert = {};
 
     //loop though the fields and add the field name and value to the object
-    for (i = 0; i < divChildren.length; i++)
+    for (i = 1; i < divChildren.length; i++)
     {
         myinsert[divChildren[i].id] = divChildren[i].value;
     }
-
-    //console.log(JSON.stringify(myinsert));
-    alert(JSON.stringify(myinsert));
 
     $.ajax({
         url: "api/customer/putcustomer",
@@ -173,6 +173,8 @@ function addCust()
         dataType: "text",
         contentType: "application/json; charset=UTF-8"
     });
+
+    alert("New Customer created successfully!");
 }
 
 // Edit function
@@ -189,7 +191,7 @@ function editCust()
     {
         myinsert[divChildren[i].id] = divChildren[i].value;
     }
-    alert(JSON.stringify(myinsert));
+
     var test = $.ajax({
         url: "api/customer/updatecustomer",
         type: "POST",
@@ -199,40 +201,34 @@ function editCust()
         dataType: "text",
         contentType: "application/json; charset=UTF-8"
     });
+    alert("Customer modified successfully!");
 }
 
 //delete function
 function deleteCust(customerId) {
-    alert("in deleteCustomer id:" + customerId);
 
-    $.ajax({
-        url:"api/customer/deletecustomer/" + customerId,
-        type:"DELETE",
-        complete:function(req,stat){ $("#error").html(stat); },
-        success:function(data){ $("#message").html(data); },
-        dataType:"text",
-        contentType:"application/json; charset=UTF-8"
-    });
+    if (customerId == ""){
+        alert("You have not selected a Customer to delete");
+
+    }
+    else{
+        if(confirm("Are you sure you want to delete Customer: " + customerId)){
+            $.ajax({
+                url:"api/customer/deletecustomer/" + customerId,
+                type:"DELETE",
+                complete:function(req,stat){ $("#error").html(stat); },
+                success:function(data){ $("#message").html(data); },
+                dataType:"text",
+                contentType:"application/json; charset=UTF-8"
+            });
+            alert("Customer: " + customerId + " has been deleted successfully");
+        }
+        else{
+            document.getElementById("CustFirstName").focus();
+        }
+
+    }
+
 
 }
 
-<!--    function SaveCustomer()-->
-<!--    {-->
-<!--        document.getElementById("Fname").value;-->
-<!--        document.getElementById("Lname").value;-->
-<!--        document.getElementById("address").value;-->
-<!--        document.getElementById("city").value;-->
-<!--        document.getElementById("prov").value;-->
-<!--        document.getElementById("postal").value;-->
-<!--        document.getElementById("country").value;-->
-<!--        document.getElementById("homeph").value;-->
-<!--        document.getElementById("busph").value;-->
-<!--        document.getElementById("email").value;-->
-
-<!--        Connection conn = new DBConnectionManager().getConnection();-->
-<!--        switch (mode[0]){​​​​​-->
-<!--            case "edit":-->
-<!--                String sql_edit = "UPDATE `customers` SET `CustFirstName`=?,`CustLastName`=?,`CustAddress`=?,`CustCity`=?,"-->
-<!--                + "`CustProv`=?,`CustPostal`=?,`CustCountry`=?,`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=?,"-->
-<!--                + "`AgentId`=? WHERE CustomerId=?";-->
-<!--    }-->

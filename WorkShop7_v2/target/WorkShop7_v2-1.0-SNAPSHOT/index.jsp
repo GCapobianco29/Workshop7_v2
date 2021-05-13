@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./index.css" type="text/css">
     <title>Login</title>
 </head>
-<body style="background-image: url('image/vacation.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<body style="background-image: url('image/calgary sunset.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 <script>
 
     function btnLogin()
@@ -46,7 +46,7 @@
 
 
     <div class="container" style="margin-top: 5%; border-radius: 25px;padding-top: 2%; padding-bottom: 3%;margin-left: auto; margin-right: auto">
-        <h1 style = "margin-bottom: 2%; text-align: center"> Welcome to Travel Expert</h1>
+        <h1 style = "margin-bottom: 2%; text-align: center">Travel Experts Database Management</h1>
         <h2 style = "margin-bottom: 2%; text-align: center">Please Login</h2>
         <br />
                 <div class = "UsernamePassword" style ="text-align: center">
