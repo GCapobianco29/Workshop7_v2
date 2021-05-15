@@ -1,3 +1,11 @@
+/*
+ * Author: Bing He (Carol)
+ * Date: May 8, 2021
+ * Course: Threaded Project for OOSD (PROJ-207-A) Term 3
+ * Project: Workshop 7 --- CPRG220 JSP/Servlets
+ * Purpose: This file is Customer.java, which is the entity class
+ */
+
 package model;
 
 import javax.persistence.*;
@@ -5,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "customers", schema = "travelexperts")
 public class Customer {
+    //member variables
     private int CustomerId;
     private String CustFirstName;
     private String CustLastName;
@@ -18,7 +27,7 @@ public class Customer {
     private String CustEmail;
     private int AgentId;
 
-
+    //getters and setters for member variables
     @Id
     @Column(name = "CustomerId", nullable = false)
     public int getCustomerId() {
@@ -140,7 +149,7 @@ public class Customer {
         AgentId = agentId;
     }
 
-
+    //equals() method
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -169,7 +178,7 @@ public class Customer {
 
         return true;
     }
-
+    //hashCode() method
     @Override
     public int hashCode() {
         int result = CustomerId;
@@ -186,7 +195,7 @@ public class Customer {
         result = 31 * result + AgentId;
         return result;
     }
-
+    //toString() method
     @Override
     public String toString() {
         return "Customer{" +
