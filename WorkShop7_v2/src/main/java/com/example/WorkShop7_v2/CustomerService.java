@@ -1,10 +1,17 @@
+/*
+ * Author: (Group 1) Bing He, Gabriel Capobianco Rey, Angelito Tuguinay, Oluseyi Adepoju
+ * Date: May 15, 2021
+ * Course: Threaded Project for OOSD (PROJ-207-A) Term 3
+ * Project: Workshop 7 --- CPRG220 JSP/Servlets
+ * Purpose: This file is CustomerService.java, which provides CRUD methods
+ */
+
 package com.example.WorkShop7_v2;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import model.Customer;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,9 +19,11 @@ import javax.persistence.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-//------Bing He--------the following is for WorkShop8 Android app to use as data service for listAllCustomer view ------
+
 @Path("/customer")
 public class CustomerService {
+    //------Bing He-----------------------------------------------------------------------------------------------------
+    // (GET Request) getCustNames() method is for WorkShop8 Android app to use as data service for lvCustomer listview -
     @GET
     @Path("/getallcustnames")
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,7 +44,8 @@ public class CustomerService {
 
         return jsonArray.toString();
     }
-//-------Gabriel---------the following is for WorkShop7 to use as data service for listAllCustomer table---------------
+    //-------Gabriel Capobianco Rey------------------------------------------------------------------------------------
+    // (GET Request) getCusts() method is for WorkShop7 to use as data service for listAllCustomer table---------------
     @GET
     @Path("/getcustomerslist")
     @Produces(MediaType.APPLICATION_JSON)
@@ -51,11 +61,12 @@ public class CustomerService {
         return gson.toJson(a);
     }
 
-//------------------Sheyi---------used to get customer--------------------------------
+    //------------------Oluseyi Adepoju---------------------------------------------------------------------------------
+    // (GET Request) getCustomer() method is to get a single customer detail data --------------------------------------
     @GET
     @Path("/getcustomer/{ customerId }")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAgent(@PathParam("customerId") int customerId)
+    public String getCustomer(@PathParam("customerId") int customerId)
     {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
@@ -64,8 +75,8 @@ public class CustomerService {
         return gson.toJson(Customer);
 }
 
-//--------Angelito---------------------------------------------------------
-    //add new data into database (PUT request)
+    //--------Angelito Tuguinay-----------------------------------------------------------------------------------------
+    // (PUT request) add new data into database-------------------------------------------------------------------------
     @PUT
     @Path("/putcustomer")
     @Produces(MediaType.TEXT_PLAIN)
@@ -93,7 +104,8 @@ public class CustomerService {
 
         return response;
     }
-
+    //------Bing He-----------------------------------------------------------------------------------------------------
+    // (POST request) Update data for the selected Customer  -----------------------------------------------------------
     @POST
     @Path("/updatecustomer")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -103,7 +115,6 @@ public class CustomerService {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
-        /*Customer Customer = em.find(Customer.class, customerId);*/
         Customer custinfo = gson.fromJson(jsonString, Customer.class);
         System.out.println(custinfo);
         em.getTransaction().begin();
@@ -120,8 +131,8 @@ public class CustomerService {
     }
 
 
-//--------Angelito---------------------------------------------------------
-    //delete data from database (DELETE request)
+    //--------Angelito Tuguinay-----------------------------------------------------------------------------------------
+    // (DELETE request) delete data from database-----------------------------------------------------------------------
     @DELETE
     @Path("/deletecustomer/{ customerId }")
     public String deleteCustomer(@PathParam("customerId") int customerId)
@@ -147,8 +158,4 @@ public class CustomerService {
 
         return response;
     }
-
-
-
-
 }
