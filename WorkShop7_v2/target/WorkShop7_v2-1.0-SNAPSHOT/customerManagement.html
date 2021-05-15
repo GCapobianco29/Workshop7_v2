@@ -1,7 +1,14 @@
+<!--
+* Author: Gabriel Capobianco
+* Date: May 2021
+* Course: Threaded Project for OOSD (PROJ-207-A) Term 3
+* Project: Workshop 7 ----; CPRG220 JSP/Servlets
+-->
 
 <!DOCTYPE html>
 <html>
 
+<!--Head of the page and links to bootstraps, CSS, JavaScripts-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,145 +20,151 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <a name="Top"></a>
 </head>
+<!--End of head of page-->
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a href="index.jsp" class="navbar-brand">The Travel Experts Co.</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="navbarMenu" class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="" class="nav-link">Account Management</a></li>
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a href="" class="nav-link"></a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"></a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link"></a></li>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a href="index.jsp" class="navbar-brand">The Travel Experts Co.</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarMenu" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Account Management</a></li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a href="" class="nav-link"></a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link"></a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link"></a></li>
 
+                        <a href="" class="nav-link">Agencies</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Agents</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Bookings</a></li>
+                    <li class="nav-item">
+                        <a href="./customerManagement.html" class="nav-link">Customers</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Packages</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Products</a></li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Suppliers</a></li>
 
-                    <a href="" class="nav-link">Agencies</a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Agents</a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Bookings</a></li>
-                <li class="nav-item">
-                    <a href="./customerManagement.html" class="nav-link">Customers</a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Packages</a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Products</a></li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Suppliers</a></li>
-
-            </ul>
-        </div>
-    </nav>
-
-    <div style="padding: 30px; background-image: url('image/Colorful-Geometric-Simple-Background-Image.jpg'); background-position: center;background-size: cover; background-repeat: no-repeat;">
-        </br>
-        <div class="row">
-            <div class="col-sm-9">
-                <input type="text" id="myInput" onkeyup="custFilter()" placeholder="Search for names.." style="border-radius: 50px">
-                <h3 style="color: white">Customer Details</h3>
-                <table id="customer-table"> <!--id="myTable"-->
-                    <thead>
-                        <!--<tr >-->
-                            <th >ID</th>
-                            <th >First Name</th>
-                            <th >Last Name</th>
-                            <th >Address</th>
-                            <th >City</th>
-                            <th >Province</th>
-                            <th >Postal Code</th>
-                            <th >Country</th>
-                            <th >Home Phone Number</th>
-                            <th >Business Phone Number</th>
-                            <th >Email</th>
-                            <th>Agent representative</th>
-                        <!--</tr>-->
-                    </thead>
-                    <tbody id="customers-table-body">
-
-                    </tbody>
-                </table>
+                </ul>
             </div>
+        </nav>
+        <!--End of Navigation Bar-->
+        <div style="padding: 30px; background-image: url('image/Colorful-Geometric-Simple-Background-Image.jpg'); background-position: center;background-size: cover; background-repeat: no-repeat;">
+        <!--Begins the content of the page-->
+            </br>
+            <!--Begins the creation of the Customer's table-->
+            <div class="row">
+                <div class="col-sm-9">
+                    <input type="text" id="myInput" onkeyup="custFilter()" placeholder="Search for names.." style="border-radius: 50px">
+                    <h3 style="color: white">Customer Details</h3>
+                    <table id="customer-table"> <!--id="myTable"-->
+                        <thead>
+                            <!--<tr >-->
+                                <th >ID</th>
+                                <th >First Name</th>
+                                <th >Last Name</th>
+                                <th >Address</th>
+                                <th >City</th>
+                                <th >Province</th>
+                                <th >Postal Code</th>
+                                <th >Country</th>
+                                <th >Home Phone Number</th>
+                                <th >Business Phone Number</th>
+                                <th >Email</th>
+                                <th>Agent representative</th>
+                            <!--</tr>-->
+                        </thead>
+                        <tbody id="customers-table-body">
+                            <!--The content of the table is created in the functions.js file-->
+                        </tbody>
+                    </table>
+                </div>
+                <!--Ends the table-->
+                <!--Begins the Details Form-->
+                <div class="col-sm-2">
+                    <form>
+                        <h3 style="color: white">Customer Details</h3>
+                        <p style="color: white">All fields are required.</p>
+                        <hr class="hr">
+                        <div class="row" id="inputField" style="color: white">
+                            <!--<div class="col-sm-6">-->
+                                <label for="CustomerId" hidden><b>Customer ID</b></label>
+                                <input type="text" placeholder="Customer ID" name="custid" id="CustomerId" required readonly hidden>
 
-            <div class="col-sm-2">
-                <form>
-                    <h3 style="color: white">Add new Customer</h3>
-                    <p style="color: white">All fields are required.</p>
-                    <hr class="hr">
-                    <div class="row" id="inputField" style="color: white">
-                        <!--<div class="col-sm-6">-->
-                            <label for="CustomerId" hidden><b>Customer ID</b></label>
-                            <input type="text" placeholder="Customer ID" name="custid" id="CustomerId" required readonly hidden>
+                                <label for="CustFirstName"><b>First Name</b></label>
+                                <input type="text" placeholder="Enter First Name" name="Fname" id="CustFirstName" required readonly>
 
-                            <label for="CustFirstName"><b>First Name</b></label>
-                            <input type="text" placeholder="Enter First Name" name="Fname" id="CustFirstName" required readonly>
+                                <label for="CustLastName"><b>Last Name</b></label>
+                                <input type="text" placeholder="Enter Last Name" name="Lname" id="CustLastName" required readonly>
 
-                            <label for="CustLastName"><b>Last Name</b></label>
-                            <input type="text" placeholder="Enter Last Name" name="Lname" id="CustLastName" required readonly>
+                                <label for="CustAddress"><b>Address</b></label>
+                                <input type="text" placeholder="Enter Address" name="address" id="CustAddress" required readonly>
 
-                            <label for="CustAddress"><b>Address</b></label>
-                            <input type="text" placeholder="Enter Address" name="address" id="CustAddress" required readonly>
+                                <label for="CustCity"><b>City</b></label>
+                                <input type="text" placeholder="Enter City" name="city" id="CustCity" required readonly>
 
-                            <label for="CustCity"><b>City</b></label>
-                            <input type="text" placeholder="Enter City" name="city" id="CustCity" required readonly>
+                                <label for="CustProv"><b>Province</b></label>
+                                <input type="text" maxlength="2" placeholder="Enter Province" name="prov" id="CustProv" required readonly>
+                            <!--</div>-->
+                            <!--<div class="col-sm-6">-->
+                                <label for="CustPostal"><b>Postal Code</b></label>
+                                <input type="text" maxlength="7" placeholder="Enter Postal Code" name="postal" id="CustPostal" required readonly>
 
-                            <label for="CustProv"><b>Province</b></label>
-                            <input type="text" maxlength="2" placeholder="Enter Province" name="prov" id="CustProv" required readonly>
-                        <!--</div>-->
-                        <!--<div class="col-sm-6">-->
-                            <label for="CustPostal"><b>Postal Code</b></label>
-                            <input type="text" maxlength="7" placeholder="Enter Postal Code" name="postal" id="CustPostal" required readonly>
+                                <label for="CustCountry"><b>Country of Residence</b></label>
+                                <input type="text" placeholder="Enter Country" name="country" id="CustCountry" readonly>
 
-                            <label for="CustCountry"><b>Country of Residence</b></label>
-                            <input type="text" placeholder="Enter Country" name="country" id="CustCountry" readonly>
+                                <label for="CustHomePhone"><b>Home Phone Number</b></label>
+                                <input type="text" placeholder="Enter Home Phone Number" name="homeph" id="CustHomePhone" readonly>
 
-                            <label for="CustHomePhone"><b>Home Phone Number</b></label>
-                            <input type="text" placeholder="Enter Home Phone Number" name="homeph" id="CustHomePhone" readonly>
+                                <label for="CustBusPhone"><b>Business Phone Number</b></label>
+                                <input type="text" placeholder="Enter Business Phone Number" name="busph" id="CustBusPhone" required readonly>
 
-                            <label for="CustBusPhone"><b>Business Phone Number</b></label>
-                            <input type="text" placeholder="Enter Business Phone Number" name="busph" id="CustBusPhone" required readonly>
+                                <label for="CustEmail"><b>Email</b></label>
+                                <input type="text" placeholder="Enter Email" name="email" id="CustEmail" required readonly>
 
-                            <label for="CustEmail"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" id="CustEmail" required readonly>
-
-                            <label for="AgentId"><b>Agent ID</b></label>
-                            <input type="text" maxlength="2" placeholder="Enter Agent ID" name="agentid" id="AgentId" readonly required>
-                       <!-- </div>-->
-                    </div>
-                    <hr class="hr">
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                    <button type="button" onclick="createBtn()" class="createbtn" name="createbtn" id="createbtn">Create Customer</button>
-                    <button type="button"  onclick="editBtn()" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>
-                    <button type="submit"  onclick="saveBtn()" class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
+                                <label for="AgentId"><b>Agent ID</b></label>
+                                <input type="text" maxlength="2" placeholder="Enter Agent ID" name="agentid" id="AgentId" readonly required>
+                           <!-- </div>-->
                         </div>
-                        <div class="col-sm-6">
-                    <button type="submit" onclick="deleteCust(document.getElementById('CustomerId').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
+
+                        <hr class="hr">
+
+                        <!--Begins the buttons section-->
+                        <div class="row">
+                            <div class="col-sm-6">
+                        <button type="button" onclick="createBtn()" class="createbtn" name="createbtn" id="createbtn">Create Customer</button>
+                        <button type="button"  onclick="editBtn()" class="editbtn" name="editbtn" id="editbtn">Edit Customer</button>
+                        <button type="submit"  onclick="saveBtn()" class="savebtn" name="savebtn" id="savebtn">Save Customer</button>
+                            </div>
+                            <div class="col-sm-6">
+                        <button type="submit" onclick="deleteCust(document.getElementById('CustomerId').value)" class="deletebtn" name="deletebtn" id="deletebtn">Delete Customer</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <!--Ends the button section-->
+                    </form>
             </div>
+        <!--End of the Form-->
         </div>
     </div>
-
-
-        <footer class="page-footer font-medium rose pt-4">
-            <div class="container-fluid text-center text-md-left .d-none" id="footer">
-            </div>
-
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="#top"> Top of page</a>
-
-            </div>
-        </footer>
 </body>
+<!--Footer of the page-->
+<footer class="page-footer font-medium rose pt-4">
+    <div class="container-fluid text-center text-md-left .d-none" id="footer">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="#top"> Top of page</a>
+        </div>
+    </div>
+</footer>
+<!--Ends Footer of the page-->
 
 </html>

@@ -1,22 +1,14 @@
-/*function loadCust()
-{
-    $.get("api/customer/getcustomers", function (cust)
-    {
-        var custTable = document.getElementById("customers-table");
+/**
+* Author: Gabriel Capobianco
+* Date: May 2021
+* Course: Threaded Project for OOSD (PROJ-207-A) Term 3
+* Project: Workshop 7 ----; CPRG220 JSP/Servlets
+*/
 
-        for (i = 0; i < cust.length; i++)
-        {
-            var row = document.createElement("td");
-            row.text = cust[i].custFirstName;
-            custTable.add(row);
-        }
-    }, "json");
-}*/
 var mode = 0;
-
 document.addEventListener("DOMContentLoaded",() => (loadCustomers()))
-//const tableBody = document.querySelector("#customers-table > tbody");
 
+// Load customers details from data base
 function loadCustomers()
 {
         try{

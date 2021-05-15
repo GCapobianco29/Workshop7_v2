@@ -1,3 +1,4 @@
+<%--sheyi--%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -36,12 +37,11 @@
             return;
         }
         else {
-            alert("invalid username or password")
+            alert("Invalid username or password")
         }
     }
 
 </script>
-<%--<a href="customerManagement.html">Customer Management</a>--%>
 <div class = "LargeContainer">
 
 

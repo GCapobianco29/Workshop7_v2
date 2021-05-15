@@ -37,7 +37,7 @@
             return;
         }
         else {
-            alert("invalid username or password")
+            alert("Invalid username or password")
         }
     }
 

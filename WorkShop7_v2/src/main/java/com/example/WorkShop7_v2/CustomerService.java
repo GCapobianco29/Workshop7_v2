@@ -1,5 +1,5 @@
-/*
- * Author: (Group 1) Bing He, Gabriel Capobianco Rey, Angelito Tuguinay, Oluseyi Adepoju
+/**
+ * Author: (Group 1) Bing He, Gabriel Capobianco, Angelito Tuguinay, Oluseyi Adepoju
  * Date: May 15, 2021
  * Course: Threaded Project for OOSD (PROJ-207-A) Term 3
  * Project: Workshop 7 --- CPRG220 JSP/Servlets
@@ -73,7 +73,7 @@ public class CustomerService {
         Customer Customer = em.find(Customer.class, customerId);
         Gson gson = new Gson();
         return gson.toJson(Customer);
-}
+    }
 
     //--------Angelito Tuguinay-----------------------------------------------------------------------------------------
     // (PUT request) add new data into database-------------------------------------------------------------------------
@@ -104,6 +104,7 @@ public class CustomerService {
 
         return response;
     }
+
     //------Bing He-----------------------------------------------------------------------------------------------------
     // (POST request) Update data for the selected Customer  -----------------------------------------------------------
     @POST
@@ -129,7 +130,6 @@ public class CustomerService {
             return "{ 'message':'Update Failed' }";
         }
     }
-
 
     //--------Angelito Tuguinay-----------------------------------------------------------------------------------------
     // (DELETE request) delete data from database-----------------------------------------------------------------------
